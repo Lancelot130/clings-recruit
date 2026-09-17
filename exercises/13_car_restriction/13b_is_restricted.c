@@ -17,10 +17,36 @@
 
 #include <stdio.h>
 
-enum day { MONDAY = 1, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY };
+enum day { MONDAY = 1, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY };        //枚举，定义了新变量名"day"，若没有声称，第一个变量的值默认为整形的0
 
 int is_restricted(int tail_num, enum day today) {
-#error TODO: Fix this exercise. Run "clings hint" for help.
+    int ret;
+
+    switch (tail_num)
+    {
+        case 0:
+        case 5:
+            ret = (today == MONDAY) ? 1 : 0;
+            break;
+        case 1:
+        case 6:
+            ret = (today == TUESDAY) ? 1 : 0;
+            break;
+        case 2:
+        case 7:
+            ret = (today == WEDNESDAY) ? 1 : 0;
+            break;
+        case 3:
+        case 8:
+            ret = (today == THURSDAY) ? 1 : 0;
+            break;
+        case 4:
+        case 9:
+            ret = (today == FRIDAY) ? 1 : 0;
+            break;            
+    }
+
+    return ret;
 }
 
 int main(void) {

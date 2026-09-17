@@ -22,14 +22,32 @@ int my_rand(void) {
 }
 
 void generate_secret(int secret[4]) {
-#error TODO: Generate 4 unique digits using used[] + do-while + my_rand(). Run "clings hint" for help.
+    int d = my_rand() % 10;
+    int used[10] = {0};
+
+    for (int i = 0;i < 4;i++)
+    {
+        if (used[d] == 0)
+        {
+        }
+        else
+        {
+            do
+            {
+                d = my_rand() % 10;
+            }while (used[d] == 1);
+        }
+        used[d] = 1;
+        *secret = d;
+        secret++;
+    }
 }
 
 int main(void) {
     int secret[4];
     int i;
 
-    generate_secret(secret);
+    generate_secret(secret);        //数组作为函数参数会退化成指针
 
     for (i = 0; i < 4; i++) printf("%d", secret[i]);
     printf("\n");

@@ -15,17 +15,20 @@
 #include <assert.h>
 #include <stdio.h>
 
-char *mystrcpy(char *dest, const char *src) {
-    assert(dest != NULL && src != NULL);
-
-#error TODO: Implement mystrcpy using pointer idiom. Run "clings hint" for help.
+char *mystrcpy(char *dest, const char *src) {       //mystrcpy这个函数的返回值是一个char类型指针
+    assert(dest != NULL && src != NULL);        //assert表示断言，条件为真则什么都不做，为假则立即终止程序
+    char *save = dest;
+    
+    while (*dest++ = *src++);       //最终dest和src指向/0后面的值，虽然*优先级低于++，但++在后缀，因此当*执行时用的是原来的地址
+    
+    return save;        //返回我保存的dest起始位置
 }
 
 int main(void) {
     char s1[256] = "";
     char s2[256];
 
-    fgets(s2, sizeof(s2), stdin);
+    fgets(s2, sizeof(s2), stdin);       //fgets可以把换行\n也读进来
     /* 去掉换行 */
     int i = 0;
     while (s2[i] && s2[i] != '\n') i++;

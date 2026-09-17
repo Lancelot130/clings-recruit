@@ -15,7 +15,16 @@
 #include <stdio.h>
 
 char get_last_char(char str[]) {
-#error TODO: Fix this exercise. Run "clings hint" for help.
+    char c;
+    int i = 0;
+    
+    while (str[i])
+    {
+        c = str[i];
+        i++;
+    } 
+    return c;
+    
 }
 
 int main(void) {
@@ -25,4 +34,4 @@ int main(void) {
     printf("%c\n", get_last_char(buf));
 
     return 0;
-}
+}       //C语言没有字符串类型，字符串就是一堆char

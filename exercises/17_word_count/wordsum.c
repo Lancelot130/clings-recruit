@@ -44,7 +44,41 @@ int main(void) {
 
     i = 0;
 
-#error TODO: Implement state machine loop with 4 branches for word counting. Run "clings hint" for help.
+    int input = 0;
+
+    for (i = 0;buf[i] != '\0';i++)
+    {
+        input = get_input_type(buf[i]);
+
+        if (state == 0 && input == 0)
+        {
+            state = 0;
+        }
+        else if (state == 0 && input == 1)
+        {
+            state = 1;
+            p = &buf[i];                //这一步来实现当一个单词结束时，指针p存储的地址是下一个单词的首字母的字符
+            counter = 0;
+            counter++;
+        }
+        else if (state == 1 && input == 0)
+        {
+            state = 0;
+            words++;
+            printf("word %d found!\n",words);
+            for (int t = 0;t < counter;t++)
+            {
+                printf("%c",*p);
+                p++;
+            }
+            printf("\n");
+        }
+        else if (state == 1 && input == 1)
+        {
+            state = 1;
+            counter++;
+        }               //救命这个东西让我写得好痛苦
+    }
 
     printf("there is %d words found!\n", words);
     return 0;

@@ -20,7 +20,14 @@ int main(void) {
     int i = 0;
     int j = 0;
 
-#error TODO: Nested for loops for multiplication table. Run "clings hint" for help.
+    for (i = 1;i < 10;i++)
+    {
+        for (j = 1;j <= i;j++)
+        {
+            printf("%d*%d=%d\t",j,i,i*j);       //内部的括号不是必要的，for循环的语法允许只有一条语句存在时对其单独执行
+        }   
+        printf("\n");
+    }
 
     return 0;
 }

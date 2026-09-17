@@ -24,9 +24,26 @@ int main(void) {
     int i;
     int max = 0;
 
-#error TODO: Fix this exercise. Run "clings hint" for help.
+    for (num = 1;num <= 100;num++)
+    {
+        int tmp;
+        tmp = (int)sqrt((double)num);
 
-    printf("max prime is %d\n", max);
+        for (i = 2;i <= tmp;i++)
+        {
+            if (num % i == 0)
+            {
+                break;
+            }
+        }
+        if (i == tmp + 1)
+        {
+            max = num;
+        }
+
+    }
+
+    printf("max prime is %d\n", max);       //如果没有数学库，可以只检查2和奇数，并且不用遍历，每次比较i*i与num的大小也许会更高效？
 
     return 0;
 }

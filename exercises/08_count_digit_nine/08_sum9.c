@@ -24,18 +24,32 @@
  *
  * Return value:  how many digit in this num
  */
-int find(int num, int digit) {
-#error TODO: Fix this exercise. Run "clings hint" for help.
+int find(int num, int digit)        //这里的num和digit为形参，是函数内部的局部变量
+{
+    int counter = 0;
+
+    do
+    {
+        if (num % 10 == digit)
+            {
+                counter++;
+            }
+        num /= 10;
+    }
+    while (num > 0);
+
+    return counter;     //返回值由counter决定
 }
 
-int main(void) {
+int main(void) 
+{
     int begin = 1;
     int end = 100;
     int i = 0;
     int sum = 0;
 
     for (i = begin; i <= end; i++) {
-        sum += find(i, 9);
+        sum += find(i, 9);      //这里的i和9为实参
     }
 
     printf("sum = %d\n", sum);

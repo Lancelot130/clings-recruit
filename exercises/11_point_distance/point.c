@@ -16,9 +16,19 @@
 #include <math.h>
 #include <stdio.h>
 
-#error TODO: Define struct point {float x; float y;} with typedef. Run "clings hint" for help.
+struct point {float x; float y;};       //用struct定义了一个新的复合类型
 
-#error TODO: Implement float calculate(point_t p1, point_t p2) for distance. Run "clings hint" for help.
+typedef struct point point_t;       //为新的复合类型取名
+
+float calculate(point_t p1 ,point_t p2)     //定义计算距离的函数
+{
+    float dx = p1.x - p2.x;
+    float dy = p1.y - p2.y;
+    
+    float distance = sqrt(dx*dx + dy*dy);
+
+    return distance;
+}
 
 int main(void) {
     point_t p1, p2;
