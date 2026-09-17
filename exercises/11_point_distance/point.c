@@ -16,9 +16,9 @@
 #include <math.h>
 #include <stdio.h>
 
-struct point {float x; float y;};       //用struct定义了一个新的复合类型
+struct point {float x; float y;};       //利用struct定义了一组坐标
 
-typedef struct point point_t;       //为新的复合类型取名
+typedef struct point point_t;       //typedef为已有的类型起别名
 
 float calculate(point_t p1 ,point_t p2)     //定义计算距离的函数
 {
