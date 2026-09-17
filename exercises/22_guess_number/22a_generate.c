@@ -38,7 +38,7 @@ void generate_secret(int secret[4]) {
             }while (used[d] == 1);
         }
         used[d] = 1;
-        *secret = d;
+        *secret = d;        //没有按任务直接遍历数组，感觉这样可以加强对指针的理解……吧
         secret++;
     }
 }
